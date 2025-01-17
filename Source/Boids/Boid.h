@@ -35,7 +35,7 @@ public:
 	UPROPERTY(EditAnywhere); float CollisionAvoidanceStrength;
 	UPROPERTY(EditAnywhere); float VelocityMatchingStrength;
 
-	UPROPERTY(EditAnywhere); UProjectileMovementComponent* ProjectileMovementComponent;
+	UPROPERTY(VisibleAnywhere); UProjectileMovementComponent* ProjectileMovementComponent;
 
 private:
 	// All boids in the current level

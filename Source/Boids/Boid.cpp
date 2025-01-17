@@ -18,6 +18,7 @@ ABoid::ABoid()
 	// Initialize projectile movement
 	ProjectileMovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>(FName("GProjectileMovement"));
 	ProjectileMovementComponent->RegisterComponent();
+	ProjectileMovementComponent->ProjectileGravityScale = 0;
 }
 
 // Called when the game starts or when spawned
@@ -32,6 +33,9 @@ void ABoid::BeginPlay()
 	TArray<AActor*> FoundAttractors;
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("BoidAttractor"), FoundAttractors);
 	Attractor = FoundAttractors[0];
+
+	// Initialize projectile rotation
+	ProjectileMovementComponent->bRotationFollowsVelocity = true;
 }
 
 // Called every frame
